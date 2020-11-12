@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
    git_url: 'git@gitlab.com:pieterdauds/ansible-push-file.git'
-   git_key: "{{ lookup('file','./id_rsa') }}"
+   git_key: "{{ lookup('file','~/.ssh/id_rsa') }}"
 
   tasks:
   - name: git pull
