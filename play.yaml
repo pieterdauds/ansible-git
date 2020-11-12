@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  vars:
+   git_url: 'git@gitlab.com:pieterdauds/ansible-push-file.git'
+   git_key: "{{ lookup('file','./id_rsa') }}"
+
+  tasks:
+  - name: git pull
+    include_role:
+      name: ansible-git
+      tasks_from: pull
+
+  - name: create file in repo
+    copy:
+      dest: ansible-git/time.yml
+      content: "{{ ansible_date_time | to_nice_yaml}}"
+
+  - name: create file
+    file:
+      path: /root/gitlab-rika/ansible-push-file/ansible.txt
+      state: touch
+      mode: "u+rw,g-wx,o-rwx"
+
+  - name: git push
+    include_role:
+      name: ansible-git
+      tasks_from: push

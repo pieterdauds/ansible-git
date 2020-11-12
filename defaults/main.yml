@@ -1,0 +1,8 @@
+---
+git_url: 'git@gitlab.com:pieterdauds/ansible-push-file.git'
+git_key: 'S7AxVq17xNxAy9LQzxQL'
+git_branch: 'master'
+git_msg: 'update files with ansible'
+git_remove_local: false
+git_username: pieterdauds
+git_email: peter.crusties@gmail.com
